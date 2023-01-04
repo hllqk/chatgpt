@@ -1,0 +1,77 @@
+
+
+<html>
+    <head>
+    <title>Gal Game</title>
+    <script type="text/javascript">
+     
+    //define global variables
+    var lives = 3;
+    var score = 0;
+     
+    //define a function to update the score
+    function updateScore(){
+        score += 10;
+        document.getElementById("score").innerHTML = score;
+    }
+     
+    //define a function to update the lives
+    function updateLives(){
+        lives--;
+        document.getElementById("lives").innerHTML = lives;
+    }
+     
+    //define a function to check if the game is over
+    function gameOver(){
+        if (lives == 0){
+            alert("Game Over!");
+        }
+    }
+     
+    //define a function to start the game
+    function startGame(){
+        //reset the lives and score
+        lives = 3;
+        score = 0;
+        //update the lives and score on the page
+        document.getElementById("lives").innerHTML = lives;
+        document.getElementById("score").innerHTML = score;
+        //start the game
+        alert("Ready, set, go!");
+    }
+     
+    //define a function to handle a correct answer
+    function handleCorrectAnswer(){
+        //update the score
+        updateScore();
+        //alert the user
+        alert("Correct!");
+    }
+     
+    //define a function to handle an incorrect answer
+    function handleIncorrectAnswer(){
+        //update the lives
+        updateLives();
+        //alert the user
+        alert("Incorrect!");
+        //check if the game is over
+        gameOver();
+    }
+     
+    </script>
+    </head>
+    <body>
+     
+    <h1>Gal Game</h1>
+     
+    <p>Score: <span id="score">0</span></p>
+    <p>Lives: <span id="lives">3</span></p>
+     
+    <button onclick="startGame()">Start Game</button>
+     
+    <p>What is the capital of Japan?</p>
+    <button onclick="handleCorrectAnswer()">Tokyo</button>
+    <button onclick="handleIncorrectAnswer()">Paris</button>
+     
+    </body>
+    </html>
